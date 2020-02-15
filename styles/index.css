@@ -1,0 +1,28 @@
+body {
+  margin:0;
+  padding: 0;
+}
+
+header {
+  background: #758D92;
+}
+
+h1 {
+  margin: 0;
+  color: darkgrey;
+  padding: 10px;
+}
+
+*{
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+a:hover{ 
+  color: #000;
+  text-decoration: none;
+}
+
+.events-list {
+  padding: 16px 0;
+}
