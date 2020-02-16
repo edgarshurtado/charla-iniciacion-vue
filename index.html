@@ -38,7 +38,7 @@
             <div class="card__description">
               <div 
                 class="card__event-remaing-time"
-                :class="{'card__event-remaining-time--passed': event.isEventPassed}"
+                :class="{'card__event-remaining-time--past': event.isEventPast}"
               >
                 {{ event.remainingDaysText }}
               </div>

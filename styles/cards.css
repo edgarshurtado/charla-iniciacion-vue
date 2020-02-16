@@ -39,7 +39,7 @@
   background: #5bb841;
 }
 
-.card__event-remaining-time--passed {
+.card__event-remaining-time--past {
   background: #e04d36;
 }
 
