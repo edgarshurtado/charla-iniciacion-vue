@@ -27,6 +27,7 @@ const app = new Vue({
     eventsData: {}
   },
   created() {
+    moment.locale('es');
     fetch('data/eventsData.json')
       .then(response => response.json())
       .then(this.addRemaingDays)
@@ -49,6 +50,11 @@ const app = new Vue({
       const eventDay = moment(dayString);
 
       return eventDay.diff(today, 'days');
+    }
+  },
+  filters: {
+    date(dateString) {
+      return moment(dateString).format('DD MMM YYYY');
     }
   }
 })
