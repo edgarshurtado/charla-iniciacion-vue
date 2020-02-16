@@ -41,7 +41,7 @@ const app = new Vue({
       return this.eventsData
         .filter(event => {
           if (this.onlyFutureEvents) {
-            return !event.isEventPassed;
+            return !event.isEventPast;
           }
 
           return true;
@@ -61,8 +61,8 @@ const app = new Vue({
     addEventDateRelatedData(events) {
       return events.map(ev => {
         ev.remainingDays = this.remainingDays(ev.date);
-        ev.isEventPassed = ev.remainingDays <= 0;
-        ev.remainingDaysText = ev.isEventPassed ? 'Pasado' : ev.remainingDays + ' días';
+        ev.isEventPast = ev.remainingDays <= 0;
+        ev.remainingDaysText = ev.isEventPast ? 'Pasado' : ev.remainingDays + ' días';
         return ev
       })
     },
