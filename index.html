@@ -12,9 +12,9 @@
 </head>
 
 <body>
-  <header>
+  <header id="header">
     <h1>
-      <img src="assets/vue-logo.png" style="height: 35px; margin-left: 16px;"> uscador de eventos
+      <img :src="vueLogo" :style="vueLogoStyles"> {{ appTitle }}
     </h1>
   </header>
   <section class="events-list">
@@ -104,5 +104,7 @@
       </div>
     </div>
   </section>
+  <script src="node_modules/vue/dist/vue.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
