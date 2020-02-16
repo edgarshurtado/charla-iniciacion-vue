@@ -23,6 +23,14 @@ const app = new Vue({
   el: '#app',
   data: {
     searchText: "",
-    onlyFutureEvents: false
+    onlyFutureEvents: false,
+    eventsData: {}
+  },
+  created() {
+    fetch('data/eventsData.json')
+      .then(response => response.json())
+      .then(events => {
+        this.eventsData = events;
+      })
   }
 })
