@@ -29,11 +29,21 @@ const app = new Vue({
   created() {
     fetch('data/eventsData.json')
       .then(response => response.json())
+      .then(this.addRemaingDays)
+      .then(this.addEventDateRelatedData)
       .then(events => {
         this.eventsData = events;
       })
   },
   methods: {
+    addEventDateRelatedData(events) {
+      return events.map(ev => {
+        ev.remainingDays = this.remainingDays(ev.date);
+        ev.isEventPassed = ev.remainingDays <= 0;
+        ev.remainingDaysText = ev.isEventPassed ? 'Pasado' : ev.remainingDays + ' días';
+        return ev
+      })
+    },
     remainingDays(dayString) {
       const today = moment();
       const eventDay = moment(dayString);
