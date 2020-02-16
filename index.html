@@ -12,43 +12,41 @@
 </head>
 
 <body>
-  <header id="header">
-    <h1>
-      <img :src="vueLogo" :style="vueLogoStyles"> {{ appTitle }}
-    </h1>
-  </header>
-  <section class="events-list" id="app">
-    <div class="container mt-3 mb-3">
-      <div class="row">
-        <div class="group">      
-          <input type="text" v-model="searchText">
-          <span class="highlight"></span>
-          <span class="bar"></span>
-          <label>Buscar</label>
+  <div id="app">
+    <app-header></app-header>
+    <div class="events-list" id="app">
+      <div class="container mt-3 mb-3">
+        <div class="row">
+          <div class="group">      
+            <input type="text" v-model="searchText">
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Buscar</label>
+          </div>
         </div>
-      </div>
-      <div style="text-align: end;">
-        <input type="checkbox" name="" id="" v-model="onlyFutureEvents"> Sólo eventos futuros
-      </div>
-      <div class="row">
-        <div class="card" v-for="event in filteredEvents">
-          <img class="card__img" :src="event.image">
-          <div class="card__text">
-            <div class="card__title">{{ event.title }}</div>
-            <div class="card__description">
-              <div 
-                class="card__event-remaing-time"
-                :class="{'card__event-remaining-time--past': event.isEventPast}"
-              >
-                {{ event.remainingDaysText }}
+        <div style="text-align: end;">
+          <input type="checkbox" name="" id="" v-model="onlyFutureEvents"> Sólo eventos futuros
+        </div>
+        <div class="row">
+          <div class="card" v-for="event in filteredEvents">
+            <img class="card__img" :src="event.image">
+            <div class="card__text">
+              <div class="card__title">{{ event.title }}</div>
+              <div class="card__description">
+                <div 
+                  class="card__event-remaing-time"
+                  :class="{'card__event-remaining-time--past': event.isEventPast}"
+                >
+                  {{ event.remainingDaysText }}
+                </div>
+                <div class="card__event-day">{{ event.date | date }}</div>
               </div>
-              <div class="card__event-day">{{ event.date | date }}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
   <script src="node_modules/vue/dist/vue.min.js"></script>
   <script src="node_modules/moment/min/moment-with-locales.min.js"></script>
   <script src="app.js"></script>

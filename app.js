@@ -1,12 +1,20 @@
-const header = new Vue({
-  el: '#header',
-  data: {
-    vueLogo: "assets/vue-logo.png",
-    vueLogoStyles: {
-      height: '35px',
-      marginLeft: '16px'
-    },
-    appFullTitle: "Buscador de eventos"
+Vue.component('app-header', {
+  template: `
+    <header>
+      <h1>
+        <img :src="vueLogo" :style="vueLogoStyles"> {{ appTitle }}
+      </h1>
+    </header>
+  `,
+  data() {
+    return {
+      vueLogo: "assets/vue-logo.png",
+      vueLogoStyles: {
+        height: '35px',
+        marginLeft: '16px'
+      },
+      appFullTitle: "Buscador de eventos"
+    }
   },
   computed : {
     appTitle() {
