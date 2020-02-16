@@ -11,20 +11,36 @@
   box-shadow:  0 30px 90px rgba(0,0,0,.4);
   transition: .6s;
 }
-.card-text{
+.card__text{
   padding: 20px 30px 30px 15px;
   max-height:170px;
   margin-top: auto;
 }
-.card-img{
+.card__img{
   width: 100%;
 }
-.card-title{
+.card__title{
   font-weight: bold;
+  font-size: large;
 }
 
-.card-description {
-  text-align: right;
+.card__description {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.card__event-remaing-time {
+  padding: 4px 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: #5bb841;
+}
+
+.card__event-remaining-time--passed {
+  background: #e04d36;
 }
 
 
