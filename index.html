@@ -31,7 +31,7 @@
         <input type="checkbox" name="" id="" v-model="onlyFutureEvents"> Sólo eventos futuros
       </div>
       <div class="row">
-        <div class="card" v-for="event in eventsData">
+        <div class="card" v-for="event in filteredEvents">
           <img class="card__img" :src="event.image">
           <div class="card__text">
             <div class="card__title">{{ event.title }}</div>

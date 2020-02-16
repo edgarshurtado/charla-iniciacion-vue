@@ -24,7 +24,7 @@ const app = new Vue({
   data: {
     searchText: "",
     onlyFutureEvents: false,
-    eventsData: {}
+    eventsData: []
   },
   created() {
     moment.locale('es');
@@ -35,6 +35,27 @@ const app = new Vue({
       .then(events => {
         this.eventsData = events;
       })
+  },
+  computed: {
+    filteredEvents() {
+      return this.eventsData
+        .filter(event => {
+          if (this.onlyFutureEvents) {
+            return !event.isEventPassed;
+          }
+
+          return true;
+        })
+        .filter(event => {
+          if (this.searchText) {
+            return event.title.toLowerCase().indexOf(
+              this.searchText.toLowerCase()
+            ) >= 0;
+          }
+
+          return true;
+        })
+    }
   },
   methods: {
     addEventDateRelatedData(events) {
