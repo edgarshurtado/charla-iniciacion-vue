@@ -38,7 +38,7 @@
             <div class="card__description">
               <div 
                 class="card__event-remaing-time"
-                :class="{'card__event-remaining-time--passed': remainingDays(event.date) < 0}"
+                :class="{'card__event-remaining-time--past': remainingDays(event.date) < 0}"
               >
                 {{ remainingDays(event.date) }} días
               </div>
