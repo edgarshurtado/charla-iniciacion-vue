@@ -31,13 +31,18 @@
         <input type="checkbox" name="" id="" v-model="onlyFutureEvents"> Sólo eventos futuros
       </div>
       <div class="row">
-        <div class="card">
-          <img class="card__img" src="assets/frontfest.png">
+        <div class="card" v-for="event in eventsData">
+          <img class="card__img" :src="event.image">
           <div class="card__text">
-            <div class="card__title">{{ eventsData[0].title }}</div>
+            <div class="card__title">{{ event.title }}</div>
             <div class="card__description">
-              <div class="card__event-remaing-time card__event-remaining-time--passed">Pasado</div>
-              <div class="card__event-day">{{ eventsData[0].date }}</div>
+              <div 
+                class="card__event-remaing-time"
+                :class="{'card__event-remaining-time--passed': remainingDays(event.date) < 0}"
+              >
+                {{ remainingDays(event.date) }} días
+              </div>
+              <div class="card__event-day">{{ event.date }}</div>
             </div>
           </div>
         </div>
@@ -45,6 +50,7 @@
     </div>
   </section>
   <script src="node_modules/vue/dist/vue.min.js"></script>
+  <script src="node_modules/moment/min/moment-with-locales.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

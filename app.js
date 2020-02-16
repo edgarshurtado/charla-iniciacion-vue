@@ -32,5 +32,13 @@ const app = new Vue({
       .then(events => {
         this.eventsData = events;
       })
+  },
+  methods: {
+    remainingDays(dayString) {
+      const today = moment();
+      const eventDay = moment(dayString);
+
+      return eventDay.diff(today, 'days');
+    }
   }
 })
