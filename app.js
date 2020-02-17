@@ -38,7 +38,6 @@ const app = new Vue({
     moment.locale('es');
     fetch('data/eventsData.json')
       .then(response => response.json())
-      .then(this.addRemaingDays)
       .then(this.addEventDateRelatedData)
       .then(events => {
         this.eventsData = events;
