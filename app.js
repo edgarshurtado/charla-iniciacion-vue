@@ -29,7 +29,6 @@ const app = new Vue({
   created() {
     fetch('data/eventsData.json')
       .then(response => response.json())
-      .then(this.addRemaingDays)
       .then(this.addEventDateRelatedData)
       .then(events => {
         this.eventsData = events;
